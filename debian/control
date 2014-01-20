@@ -1,0 +1,13 @@
+# Source: <source package name; defaults to package name>
+Section: misc
+Priority: optional
+Homepage: http://digabi.fi/
+Standards-Version: 3.9.2
+
+Package: digabi-repository
+Maintainer: Ville Korhonen <ville.korhonen@ylioppilastutkinto.fi>
+Changelog: debian/changelog
+Files: digabi.gpg /etc/apt/trusted.gpg.d
+ digabi.list /etc/apt/sources.list.d/digabi.list
+Description: Installs Digabi APT repository.
+ This package includes sources.list and GPG key for Digabi repository.
