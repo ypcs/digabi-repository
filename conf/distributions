@@ -1,0 +1,8 @@
+Origin: Digabi
+Label: Digabi
+Codename: jessie
+Architectures: i386 amd64
+Components: main contrib non-free
+Description: APT repository for Digabi
+SignWith: 0x9D3D06EE
+#SignWith: 0xF03E2D4A
