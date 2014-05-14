@@ -7,6 +7,16 @@ This repository includes:
  - digabi-repository .deb package configuration (equivs), which installs 
  Digabi repository into Debian based system.
 
+## Getting Started
+Requirements: you need Digabi GPG key + your SSH key must be added to 
+server.
+
+    git clone git://github.com/digabi/digabi-repository.git
+    cd digabi-repository
+    ./tools/sync from-server
+    reprepro includedeb mypackage.deb
+    ./tools/sync to-server
+
 
 ## Add package to repository
 
@@ -22,6 +32,10 @@ This repository includes:
 
     reprepro list jessie    
 
+## Sync repository from server
+
+    ./tools/sync from-server
+
 ## Sync repository to server
 
-    ./sync.sh
+    ./tools/sync to-server
