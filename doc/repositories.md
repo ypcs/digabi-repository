@@ -5,6 +5,8 @@ Repositories are managed using [aptly](http://www.aptly.info/).
 
 Currently we're maintaining packages for architectures `i386`, `amd64`.
 
+**User should NEVER use aptly commands directly, and use `scripts/*` instead.**
+
 ## Usage
 In future, all Digabi OS builds MUST use only these mirrors, only exception is that Debian security repository MUST always also be in the sources.list.
 
@@ -15,6 +17,7 @@ Mirrors are local copies of remote (upstream) repositories, cached locally for f
 Local mirror of Debian repository.
 
 ### geogebra-main
+Local mirror of GeoGebra repository.
 
 ## Local repositories
 Local repositories are our custom collections of packages. Packages are from mirrors or are built locally and then imported to repository.
