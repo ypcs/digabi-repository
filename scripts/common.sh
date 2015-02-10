@@ -16,4 +16,10 @@ DEBIAN_MIRROR="http://http.debian.net/debian"
 
 STAGEDIR="data/stage"
 
+LOCAL_CONFIG="$(realpath $(dirname 0)/../conf/local.sh)"
+if [ -r "${LOCAL_CONFIG}" ]
+then
+    . ${LOCAL_CONFIG}
+fi
+
 . $(dirname $0)/functions.sh
