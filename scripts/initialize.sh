@@ -18,14 +18,17 @@ set -e
 #        - packages done by others, built by us
 # TODO: 
 
+mkdir -p ${STAGEDIR}
+
 for component in ${COMPONENTS}
 do
     add_mirror debian-${SUITE}-${component} ${SUITE} ${DEBIAN_MIRROR} conf/gpg.d/debian-archive-keyring.gpg ${component}
     
-    for stage in ${STAGES}
+    for dist in ${DISTRIBUTIONS}
     do
-        add_repository digabi-${stage}-${component}
-        add_repository digabi-custom-${stage}-${component}
+        add_repository digabi-${dist}-${component}
+        add_repository digabi-custom-${dist}-${component}
     done
 done
 
+add_mirror geogebra-main stable http://www.geogebra.net/linux conf/gpg.d/geogebra.gpg main
