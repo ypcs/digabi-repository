@@ -23,9 +23,10 @@ Local mirror of GeoGebra repository.
 Local repositories are our custom collections of packages. Packages are from mirrors or are built locally and then imported to repository.
 
 
-### digabi-{unstable}-{main,contrib,non-free}
-Local copy of Debian packages we're currently using (ie. that have been manually approved for inclusion). Packages get automatically copied after updating local Debian mirror, if package with earlier version was already included in our repositories. New packages must be manually accepted.
+### digabi-{,custom-}{unstable}-{main,contrib,non-free}
+Local copy of packages we're currently using (ie. that have been manually approved for inclusion). Packages get automatically copied after updating local Debian mirror, if package with earlier version was already included in our repositories. New packages must be manually accepted.
 
+`digabi-custom-*` repositories are reserved for our custom packages, and for packages from other sources than Debian upstream.
 
 ### digabi-{testing}-{main,contrib,non-free}
 Packages migrated from *unstable* that are currently included in our test builds. For package to get promoted from unstable to testing, it *must* pass automated tests.
@@ -34,10 +35,6 @@ Packages migrated from *unstable* that are currently included in our test builds
 ### digabi-{stable}-{main,contrib,non-free}
 Packages migrated from -testing- that are currently included in our stable builds. For package to get promoted from testing to stable, it *must* pass manual testing.
 
-
-### digabi-custom-{unstable,testing,stable}-{main,contrib,non-free}
-### digabi-custom-{unstable,testing,stable}-{main,contrib,non-free}
-### digabi-custom-{unstable,testing,stable}-{main,contrib,non-free}
 
 ### digabi-overrides-{main,contrib,non-free}
 Repository for forcing manual overrides of other packages. Should be used only when absolutely necessary.
