@@ -27,7 +27,5 @@ do
         add_repository digabi-${stage}-${component}
         add_repository digabi-custom-${stage}-${component}
     done
-
-    add_repository digabi-overrides-${component}
 done
 

@@ -34,7 +34,3 @@ Packages migrated from *unstable* that are currently included in our test builds
 
 ### digabi-{stable}-{main,contrib,non-free}
 Packages migrated from -testing- that are currently included in our stable builds. For package to get promoted from testing to stable, it *must* pass manual testing.
-
-
-### digabi-overrides-{main,contrib,non-free}
-Repository for forcing manual overrides of other packages. Should be used only when absolutely necessary.
