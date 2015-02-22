@@ -54,6 +54,6 @@ add_keyring() {
     then
         return
     fi
-    gpg --keyring=${KEYRING} --no-default-keyring import ${FILE}
+    gpg --keyring=${KEYRING} --no-default-keyring --import ${FILE}
     set_stage "add-keyring-${HASH}"
 }
