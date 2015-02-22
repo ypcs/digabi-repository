@@ -50,7 +50,8 @@ do
     SOURCE_REPO="${REPOSITORY}-${SOURCE}-${component}"
     TARGET_REPO="${REPOSITORY}-${TARGET}-${component}"
 
-    PACKAGES_IN_TARGET="$(${APTLYCMD} repo show -with-packages=true ${TARGET_REPO} |grep '^  ' |cut -d_ -f1 |xargs)"
+    #PACKAGES_IN_TARGET="$(${APTLYCMD} repo show -with-packages=true ${TARGET_REPO} |grep '^  ' |cut -d_ -f1 |xargs)"
+    PACKAGES_IN_TARGET="$(cat conf/packages/${TARGET} |xargs)"
     
     echo "I: Copying packages from ${SOURCE_REPO} to ${TARGET_REPO}: ${PACKAGES_IN_TARGET}"
     ${APTLYCMD} ${CMD} ${SOURCE_REPO} ${TARGET_REPO} ${PACKAGES_IN_TARGET}
