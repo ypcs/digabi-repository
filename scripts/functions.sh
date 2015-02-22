@@ -57,3 +57,12 @@ add_keyring() {
     gpg --keyring=${KEYRING} --no-default-keyring --import ${FILE}
     set_stage "add-keyring-${HASH}"
 }
+
+list_mirrors() {
+    ${APTLYCMD} mirror list -raw
+}
+
+update_mirror() {
+    MIRROR="$1"
+    ${APTLYCMD} -keyring=${KEYRING} mirror update ${MIRROR}
+}

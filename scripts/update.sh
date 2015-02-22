@@ -3,10 +3,10 @@ set -e
 
 . $(dirname $0)/common.sh
 
-MIRRORS="$(${APTLYCMD} mirror list -raw)"
+MIRRORS="$(list_mirrors)"
 
 for mirror in ${MIRRORS}
 do
     echo "I: Updating mirror ${mirror}..."
-    ${APTLYCMD} mirror update ${mirror}
+    update_mirror ${mirror}
 done
