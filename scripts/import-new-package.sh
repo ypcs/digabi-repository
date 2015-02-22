@@ -11,5 +11,6 @@ set -e
 # TODO: Track components, import automatically to correct component
 
 REPO="$1"
-PACKAGE="$2"
-${APTLYCMD} repo add ${REPO} ${PACKAGE}
+shift
+PACKAGES="$@"
+${APTLYCMD} repo add ${REPO} ${PACKAGES}
