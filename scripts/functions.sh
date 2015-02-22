@@ -44,7 +44,7 @@ add_repository() {
 
 add_keyring() {
     FILE="$1"
-    if [ !-f "${FILE}" ]
+    if [ ! -f "${FILE}" ]
     then
         echo "E: File not found: ${FILE}!" 1>&2
         exit 1
