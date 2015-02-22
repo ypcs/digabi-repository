@@ -47,10 +47,13 @@ add_keyring() {
     if [ !-f "${FILE}" ]
     then
         echo "E: File not found: ${FILE}!" 1>&2
+        exit 1
     fi
-    if [ "$(stage add-keyring-${FILE})" = "1" ]
+    HASH="$(echo ${FILE} |md5sum)"
+    if [ "$(stage add-keyring-${HASH})" = "1" ]
     then
         return
     fi
     gpg --keyring=${KEYRING} --no-default-keyring import ${FILE}
+    set_stage "add-keyring-${HASH}"
 }
