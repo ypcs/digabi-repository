@@ -41,3 +41,16 @@ add_repository() {
     ${APTLYCMD} repo create ${NAME}
     set_stage "add-repository-${NAME}"
 }
+
+add_keyring() {
+    FILE="$1"
+    if [ !-f "${FILE}" ]
+    then
+        echo "E: File not found: ${FILE}!" 1>&2
+    fi
+    if [ "$(stage add-keyring-${FILE})" = "1" ]
+    then
+        return
+    fi
+    gpg --keyring=${KEYRING} --no-default-keyring import ${FILE}
+}

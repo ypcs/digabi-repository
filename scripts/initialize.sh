@@ -20,6 +20,9 @@ set -e
 
 mkdir -p ${STAGEDIR}
 
+add_keyring conf/gpg.d/debian-archive-keyring.gpg
+add_keyring conf/gpg.d/geogebra.gpg
+
 for component in ${COMPONENTS}
 do
     add_mirror debian-${SUITE}-${component} ${SUITE} ${DEBIAN_MIRROR} conf/gpg.d/debian-archive-keyring.gpg ${component}
