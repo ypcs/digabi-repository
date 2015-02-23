@@ -34,7 +34,7 @@ do
     done
 done
 
-if [ "$(stage remove-repository-geogebra-main-sources)" != "1" ]
+if [[ "$(stage remove-repository-geogebra-main-sources)" != "1" && "$(stage add-repository-geogebra-main)" = "1" ]]
 then
     ${APTLYCMD} mirror drop geogebra-main
     remove_stage add-repository-geogebra-main
