@@ -78,3 +78,19 @@ update_mirror() {
     MIRROR="$1"
     ${APTLYCMD} -keyring=${KEYRING} mirror update ${MIRROR}
 }
+
+repository_contents() {
+    REPO="$1"
+    IS_MIRROR="$2"
+    if [ -n "${IS_MIRROR}" ]
+    then
+        CMD="mirror"
+    else
+        CMD="repo"
+    fi
+    ${APTLYCMD} ${CMD} show -with-packages=true ${REPO} |tee contents_${CMD}_${REPO}.${BUILD_TAG:-$(date +%Y%m%d%H%M%S)}.list
+}
+
+mirror_contents() {
+    repository_contents $1 ismirror
+}
