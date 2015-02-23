@@ -82,9 +82,12 @@ update_mirror() {
 repository_contents() {
     REPO="$1"
     IS_MIRROR="$2"
-    if [ -n "${IS_MIRROR}" ]
+    if [ "${IS_MIRROR}" = "ismirror" ]
     then
         CMD="mirror"
+    elif [ "${IS_MIRROR}" = "issnapshot" ]
+    then
+        CMD="snapshot"
     else
         CMD="repo"
     fi
@@ -93,4 +96,8 @@ repository_contents() {
 
 mirror_contents() {
     repository_contents $1 ismirror
+}
+
+snapshot_contents() {
+    repository_contents $1 issnapshot
 }
