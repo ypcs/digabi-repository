@@ -13,4 +13,8 @@ set -e
 REPO="$1"
 shift
 PACKAGES="$@"
+echo "D: List repositories..."
+${APTLYCMD} repo list -raw
+
+echo "I: Add package(s) to repository ${REPO}..."
 ${APTLYCMD} repo add ${REPO} ${PACKAGES}
