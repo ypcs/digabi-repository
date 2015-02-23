@@ -16,3 +16,8 @@ PACKAGES="$@"
 
 echo "I: Add package(s) to repository ${REPO}..."
 ${APTLYCMD} repo add ${REPO} ${PACKAGES}
+
+echo "I: Getting repository contents..."
+echo "########## REPOSITORY: ${REPO}"
+${APTLYCMD} repo show -with-packages=true ${REPO} |tee packages_${BUILD_TAG:-unknown}.list
+echo "##########"
