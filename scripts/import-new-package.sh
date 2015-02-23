@@ -18,4 +18,4 @@ echo "I: Add package(s) to repository ${REPO}..."
 ${APTLYCMD} repo add ${REPO} ${PACKAGES}
 
 echo "I: Getting repository contents..."
-repo_contents ${REPO}
+repository_contents ${REPO}
