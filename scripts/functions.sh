@@ -74,6 +74,10 @@ list_mirrors() {
     ${APTLYCMD} mirror list -raw
 }
 
+list_repos() {
+    ${APTLYCMD} repo list -raw
+}
+
 update_mirror() {
     MIRROR="$1"
     ${APTLYCMD} -keyring=${KEYRING} mirror update ${MIRROR}
