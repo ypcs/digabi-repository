@@ -8,6 +8,11 @@ set_stage() {
     touch "${SFILE}"
 }
 
+remove_stage() {
+    SFILE="$(get_stagefile $1)"
+    rm -f "${SFILE}"
+}
+
 stage() {
     SFILE="$(get_stagefile $1)"
     if [ -e "${SFILE}" ]
@@ -28,7 +33,14 @@ add_mirror() {
     URL="$3"
     KEYRING="$4"
     COMPONENT="$5"
-    ${APTLYCMD} -keyring=${KEYRING} mirror create ${NAME} ${URL} ${SUITE} ${COMPONENT}
+    NOSOURCES="$6"
+    if [ "${NOSOURCES}" = "nosources" ]
+    then
+        ARGS="-with-sources=false"
+    else
+        ARGS=""
+    fi
+    ${APTLYCMD} -keyring=${KEYRING} ${ARGS} mirror create ${NAME} ${URL} ${SUITE} ${COMPONENT}
     set_stage "add-mirror-${NAME}"
 }
 

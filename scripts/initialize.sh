@@ -34,4 +34,11 @@ do
     done
 done
 
-add_mirror geogebra-main stable http://www.geogebra.net/linux conf/gpg.d/geogebra.gpg main
+if [ "$(stage remove-repository-geogebra-main-sources)" != "1" ]
+then
+    ${APTLYCMD} mirror drop geogebra-main
+    remove_stage add-repository-geogebra-main
+    set_stage remove-repository-geogebra-main-sources
+fi
+
+add_mirror geogebra-main stable http://www.geogebra.net/linux conf/gpg.d/geogebra.gpg main nosources
