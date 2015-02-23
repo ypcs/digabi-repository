@@ -16,7 +16,7 @@ done
 
 for repo in ${REPOS}
 do
-    PACKAGES="$(${APTLYCMD} repo show |grep '^Number of packages:' |cut -d: -f2)"
+    PACKAGES="$(${APTLYCMD} repo show ${repo} |grep '^Number of packages:' |cut -d: -f2)"
     if [ "${PACKAGES}" = "0" ]
     then
         echo "W: Skip snapshot creation for repository ${repo}, no packages..."
